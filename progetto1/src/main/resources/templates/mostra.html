@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+ <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+ 
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+img {
+	width: 5%;
+}
+
+</style>
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container">
+<table>
+        <thead>
+          <tr>
+              <th>Nome</th>
+              <th>Marca</th>
+              <th>Prezzo</th>
+              <th>Url</th>
+          </tr>
+        </thead>
+ 
+        <tbody>
+          <tr th:each = "prodotto :  ${lista}">
+            <td th:text =${prodotto.nome}></td>
+            <td  th:text =${prodotto.getMarca()}></td>
+            <td  th:text =${prodotto.getPrezzo()}></td>
+            <td><img th:src = ${prodotto.getUrl()}></td>
+          </tr>
+ 
+        </tbody>
+      </table>
+      </div>
+      
+       <div class="row">
+    <div class="col s12 m7">
+      <div class="card" th:each = "prodotto :  ${lista}">
+        <div class="card-image">
+        
+          <img th:src="${prodotto.getUrl()}">
+          <span class="card-title" th:text="${prodotto.getNome()}"></span>
+        </div>
+        <div class="card-content">
+          <p th:text="${prodotto.getMarca()}"></p>
+        </div>
+        <div class="card-action">
+          <a href=# th:text="${prodotto.getPrezzo()}">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+           
+
+
+</body>
+</html>
